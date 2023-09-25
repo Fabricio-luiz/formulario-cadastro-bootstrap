@@ -33,12 +33,24 @@ $(document).ready(function() {
             aceitoTermos:'<span class="message-error">Este campo é obrigatório</span>',
         },
         submitHandler: function(form) {
-            alert('Formulário cadastrado')
+            swal({
+                title:  "Obrigado!",
+                text:   "Formulário cadastrado",
+                icon:   "success",
+            });
+            /*alert('Formulário cadastrado')*/
             form.reset();
         },
         invalidHandler: function(evento, validador) {
             let camposIncorretos = validador.numberOfInvalids();
             if (camposIncorretos) {
+                /*swal({
+                    title:  "Atenção!",
+                    text:   "campo(s) incorreto(s)",
+                    icon:   "error",
+                });*/
+                /*swal("Good job!", "You clicked the button!", "success");*/
+                swal("Atenção", `${camposIncorretos} campo(s) incorreto(s)`, "error");
             /* alert(`Existe ${camposIncorretos} campo(s) incorreto(s)`)*/
             }
         }
